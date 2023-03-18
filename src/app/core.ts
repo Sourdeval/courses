@@ -1,4 +1,5 @@
 export interface Product{
     name: string,
-    buy: boolean
+    buy: boolean,
+    id: string
 }

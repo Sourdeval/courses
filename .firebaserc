@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "coursesproject-4476d": {
+      "hosting": {
+        "courses-app": [
+          "coursesproject-4476d"
+        ]
+      }
+    }
+  }
+}

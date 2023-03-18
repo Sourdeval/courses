@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Product } from './core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -13,28 +14,11 @@ export class AppComponent {
   userWantAdd=false;
   products: Product[] | undefined;
 
-  constructor(){
-    this.products = [
-      {
-        "name":"tomates",
-        "buy": false
-      },
-      {
-        "name":"PQ",
-        "buy": true
-      },{
-        "name":"pain",
-        "buy": false
-      },{
-        "name":"biscuits chocolat",
-        "buy": false
-      },{
-        "name":"jambon",
-        "buy": true
-      },
-    ]
+  constructor(private readonly data: DataService){
+    data.getAll().subscribe(d => {
+      this.products = d;
+    })
   }
-
 
   getOpacity(p:Product){
     if (p.buy){
@@ -50,11 +34,11 @@ export class AppComponent {
   }
 
   addNewProduct(){
-    console.log(this.newproduct)
     if(this.newproduct){
-      this.products.push({
-        "name":this.newproduct,
-        "buy":false
+      this.data.addProduct({
+        "name": this.newproduct,
+        "buy": false,
+        "id": ''
       })
       this.userWantAdd=false;
       this.newproduct='';
@@ -63,10 +47,10 @@ export class AppComponent {
 
   bought(p : Product){
     p.buy = true;
+    this.data.updateProduct(p);
   }
 
   deleteProduct(p: Product){
-    console.log(this.products.indexOf(p))
-    this.products.splice(this.products.indexOf(p),1);
+    this.data.removeProduct(p);
   }
 }
