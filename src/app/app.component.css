@@ -1,7 +1,19 @@
 .mat-card{
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-top: 8px;
     background: rgba(255, 255, 255, 0.7);
     padding: 2px;
+}
+
+input{
+    background: none;
+    border:none;
+    width: 80%;
+    font-size: 100%;
+}
+
+input:focus-visible{
+    border:none;
+    outline: none;
 }

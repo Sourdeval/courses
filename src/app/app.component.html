@@ -5,16 +5,18 @@
         <mat-card-header>
             <h5 style="align-self: center;">{{p.name}}</h5>
             <div class="spacer"></div>
-            <button *ngIf="!p.buy" mat-raised-button color="basic">Ok</button>
-            <button *ngIf="p.buy" mat-raised-button color="warn"><mat-icon>delete</mat-icon></button>
+            <button *ngIf="!p.buy" mat-raised-button color="basic" (click)="bought(p)">Ok</button>
+            <button *ngIf="p.buy" mat-raised-button color="warn" (click)="deleteProduct(p)"><mat-icon>delete</mat-icon></button>
         </mat-card-header>
     </mat-card>
 </div>
 
 <mat-card style="background: rgba(170, 170, 170, 0.7);">
     <mat-card-header>
-        <h5 style="align-self: center; color:#333333"><i>Ajouter un produit...</i></h5>
+        <input #addInput *ngIf="userWantAdd" type="text" [(ngModel)]="newproduct">
+        <h5 *ngIf="!userWantAdd" style="align-self: center; color:#333333" (click)="wantAdd()"><i>Ajouter un produit...</i></h5>
+        
         <div class="spacer"></div>
-        <button mat-raised-button color="basic">+</button>
+        <button mat-raised-button color="basic" (click)="addNewProduct()"><mat-icon>add</mat-icon></button>
     </mat-card-header>
 </mat-card>

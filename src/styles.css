@@ -2,19 +2,17 @@ html, body { height: 90%; }
 
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#feccb1+0,f17432+50,ea5507+51,fb955e+100;Red+Gloss+%232 */
 body{
-    /*background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
-    url("assets/wall.png");*/
     background: linear-gradient(90deg, #ff0000 0%,#ffae00 50%, #2600ff 100%);
 }
 
 /* All texts */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, input {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
     margin: 0;
 }
 
 /* Titles */
 h1, h2, h3 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: whitesmoke;
     margin: 12px;
 }
