@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Product } from './core';
@@ -7,24 +7,28 @@ import { Product } from './core';
   providedIn: 'root'
 })
 export class DataService {
-
-  constructor(private store: AngularFirestore) { }
+  firebaseCollection = 'courses'
+  constructor(private store: AngularFirestore) {
+    if (!isDevMode()){
+      this.firebaseCollection = 'courses-prod'
+    }
+  }
 
 
   getAll(): Observable<Product[]>{
-    return this.store.collection('courses').valueChanges({ idField: 'id' }) as Observable<Product[]>;
+    return this.store.collection(this.firebaseCollection).valueChanges({ idField: 'id' }) as Observable<Product[]>;
   }
 
   addProduct(p : Product){
-    this.store.collection('courses').add(p);
+    this.store.collection(this.firebaseCollection).add(p);
   }
 
   removeProduct(p : Product){
-    this.store.collection('courses').doc(p.id).delete();
+    this.store.collection(this.firebaseCollection).doc(p.id).delete();
   }
 
   updateProduct(p : Product){
-    this.store.collection('courses').doc(p.id).update(p);
+    this.store.collection(this.firebaseCollection).doc(p.id).update(p);
   }
 
 }
