@@ -1,1 +1,20 @@
 <h1 align="center">Courses</h1>
+
+<div *ngIf="products">
+    <mat-card *ngFor="let p of products" [style]="getOpacity(p)">
+        <mat-card-header>
+            <h5 style="align-self: center;">{{p.name}}</h5>
+            <div class="spacer"></div>
+            <button *ngIf="!p.buy" mat-raised-button color="basic">Ok</button>
+            <button *ngIf="p.buy" mat-raised-button color="warn"><mat-icon>delete</mat-icon></button>
+        </mat-card-header>
+    </mat-card>
+</div>
+
+<mat-card style="background: rgba(170, 170, 170, 0.7);">
+    <mat-card-header>
+        <h5 style="align-self: center; color:#333333"><i>Ajouter un produit...</i></h5>
+        <div class="spacer"></div>
+        <button mat-raised-button color="basic">+</button>
+    </mat-card-header>
+</mat-card>

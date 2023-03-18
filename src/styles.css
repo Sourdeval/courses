@@ -1,4 +1,4 @@
-html, body { height: 100%; }
+html, body { height: 90%; }
 
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#feccb1+0,f17432+50,ea5507+51,fb955e+100;Red+Gloss+%232 */
 body{
@@ -30,15 +30,13 @@ h3 {
 
 /* Key words */
 h4 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: whitesmoke;
+    color: black;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /* Texts */
 h5, h6 {
-    font-family: 'Times New Roman', Times, serif;
-    color: whitesmoke;
+    color: black;
 }
 
 /* Sizes */
@@ -99,4 +97,8 @@ section {
 
 a {
     text-decoration: none;
+}
+
+div.spacer{
+    flex: auto;
 }
