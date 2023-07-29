@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Product } from './core';
 import { DataService } from './data.service';
 
@@ -9,6 +9,12 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
   @ViewChild('addInput') addInputElement: ElementRef;
+  @HostListener('document:keypress', ['$event']) handleKeyboardEvent(event: KeyboardEvent){
+    if (event.key == 'Enter'){
+      this.addNewProduct();
+      this.wantAdd();
+    }
+  }
   title = 'courses-app';
   newproduct='';
   userWantAdd=false;
