@@ -23,6 +23,9 @@ export class AppComponent {
   constructor(private readonly data: DataService){
     data.getAll().subscribe(d => {
       this.products = d;
+      this.products.sort((n1,n2) => {
+        return n1.name.localeCompare(n2.name);
+      })
     })
   }
 
