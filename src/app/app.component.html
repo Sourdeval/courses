@@ -12,9 +12,9 @@
 </div>
 
 <mat-card style="background: rgba(170, 170, 170, 0.7);">
-    <mat-card-header>
+    <mat-card-header (click)="wantAdd()">
         <input #addInput *ngIf="userWantAdd" type="text" [(ngModel)]="newproduct">
-        <h5 *ngIf="!userWantAdd" style="align-self: center; color:#333333" (click)="wantAdd()"><i>Ajouter un produit...</i></h5>
+        <h5 *ngIf="!userWantAdd" style="align-self: center; color:#333333"><i>Ajouter un produit...</i></h5>
         
         <div class="spacer"></div>
         <button mat-raised-button color="basic" (click)="addNewProduct()"><mat-icon>add</mat-icon></button>
